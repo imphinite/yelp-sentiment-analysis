@@ -9,7 +9,16 @@ CREATE TABLE reviews (
     useful INT DEFAULT 0,
     funny INT DEFAULT 0,
     cool INT DEFAULT 0,
-    text TEXT DEFAULT '',
+    text TEXT,
     date DATETIME,
     PRIMARY KEY (id)
 );
+
+SET autocommit=0;
+
+-- import data from JSON files
+LOAD DATA INFILE '/tmp/chunk_1.json' INTO TABLE reviews;
+
+COMMIT;
+
+SET autocommit=1;

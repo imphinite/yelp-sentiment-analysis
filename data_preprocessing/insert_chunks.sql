@@ -7,7 +7,7 @@ START TRANSACTION;
 -- loop through all 14 chunks of data
 SET @i = 1;
 WHILE @i <= 14 DO
-    SET @file_path = CONCAT('./chunks/chunk_', @i, '.json');
+    SET @file_path = CONCAT('/tmp/chunk_', @i, '.json');
 
     -- insert data from current chunk file
     LOAD DATA INFILE @file_path
