@@ -13,12 +13,3 @@ CREATE TABLE reviews (
     date DATETIME,
     PRIMARY KEY (id)
 );
-
-SET autocommit=0;
-
--- import data from JSON files
-LOAD DATA INFILE '/tmp/chunk_1.json' INTO TABLE reviews;
-
-COMMIT;
-
-SET autocommit=1;
