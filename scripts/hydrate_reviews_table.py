@@ -73,7 +73,7 @@ def run():
     db = conn()
 
     # Loop through JSON data chunks and import data into MySQL
-    for i in range(2, 15):
+    for i in range(1, 20):
         filename = os.path.join(paths.data_chunks_dir, f"chunk_{i}.json")
         if os.path.exists(filename):
             import_data(filename, db)
