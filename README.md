@@ -42,3 +42,8 @@ By default, the docker image provided will use localhost:3306 uroot psecret, and
 ```
 python scripts/hydrate_reviews_table.py
 ```
+
+## Lemmatize the reviews
+```
+python scripts/lemmatize_reviews_text.py
+```
