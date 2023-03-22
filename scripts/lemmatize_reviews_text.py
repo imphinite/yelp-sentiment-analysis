@@ -61,6 +61,8 @@ def bulk_retrieve(cnx, bulk_size=1000, offset=0):
     # Retrieve the results
     results = cursor.fetchall()
 
+    cursor.close()
+
     return results
 
 def get_count(cnx):
@@ -89,7 +91,7 @@ def run():
     pbar = tqdm(total=total_records)
 
     # Process data in bulks
-    bulk_size = 10
+    bulk_size = 1000
     offset = 0
 
     # # loop_ctrl for debugging
