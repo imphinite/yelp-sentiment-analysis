@@ -16,7 +16,7 @@ CREATE TABLE reviews (
 
 CREATE TABLE lemmatized_reviews (
     id INT NOT NULL AUTO_INCREMENT,
-    review_id INTEGER UNIQUE REFERENCES reviews (id),
+    review_id INTEGER REFERENCES reviews (id),
     lemmatized_text TEXT,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)

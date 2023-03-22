@@ -40,9 +40,6 @@ def bulk_save_result(cnx, data):
 
     cursor.executemany(query, data)
 
-    # Commit changes to database
-    cnx.commit()
-
     cursor.close()
 
 
@@ -88,6 +85,7 @@ def run():
     # Get total records
     total_records = get_count(db)
 
+    # Initialize progress bar
     pbar = tqdm(total=total_records)
 
     # Process data in bulks
@@ -96,7 +94,7 @@ def run():
 
     # # loop_ctrl for debugging
     # loop_ctrl = 0
-
+    
     # For each bulk_size data
     while offset < total_records:
         # Retrieve raw data
@@ -125,7 +123,10 @@ def run():
         # loop_ctrl += 1
         # if (loop_ctrl > 2):
         #     break
-    
+
+    # Commit changes to database
+    db.commit()
+
     # Close conn
     db.close()
 
